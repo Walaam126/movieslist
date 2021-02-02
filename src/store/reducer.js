@@ -13,17 +13,23 @@ export const reducer = (state = initialState, action) => {
         ),
       };
     case "UPDATE_MOVIE":
-      if (action.payload.updatedMoive.watch === "watched") {
-        action.payload.updatedMoive = {
-          watch: "unwatch",
-          ...action.payload.updatedMoive,
-        };
+      if (action.payload.updatedMovie.watch === "watched") {
+        action.payload.updatedMovie = {
+            ...action.payload.updatedMovie,
+            watch: "unwatch"
+          };
+          
+      } else {
+        action.payload.updatedMovie = {
+            ...action.payload.updatedMovie,
+            watch: "watched"
+          };
       }
       return {
         ...state,
         watchList: state.watchList.map((movie) =>
-          movie.id === action.payload.updatedMoive.id
-            ? action.payload.updatedMoive
+          movie.id === action.payload.updatedMovie.id
+            ? action.payload.updatedMovie
             : movie
         ),
       };

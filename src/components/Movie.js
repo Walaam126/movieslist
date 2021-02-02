@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteMovie, updateMoive } from "../store/actions";
 function Movie({ movie }) {
   const dispatch = useDispatch();
-
+  
   return (
     <tr>
       <td>{movie.name}</td>
@@ -10,6 +10,7 @@ function Movie({ movie }) {
         <button
           className="btn btn-primary"
           onClick={() => dispatch(updateMoive(movie))}
+     
         >
           {movie.watch}
         </button>

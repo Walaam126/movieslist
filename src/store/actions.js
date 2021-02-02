@@ -6,7 +6,11 @@ export const deleteMovie = (movieId) => ({
   payload: { movieId },
 });
 
-export const updateMoive = (updatedMovie) => ({
-  type: UPDATE_MOVIE,
-  payload: { updatedMovie },
-});
+export const updateMoive = (updatedMovie) => {
+    return {
+        type: UPDATE_MOVIE,
+        payload: { updatedMovie },
+    }
+
+  
+};
