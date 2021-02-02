@@ -1,4 +1,4 @@
-const WatchList = [
+const watchList = [
   {
     id: 1,
     name: "into the wild",
@@ -14,4 +14,11 @@ const WatchList = [
     name: "Harry potter",
     watch: "watched",
   },
+  {
+    id: 4,
+    name: "Harry potter 2",
+    watch: "watched",
+  }
 ];
+
+export default watchList;
