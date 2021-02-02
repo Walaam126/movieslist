@@ -1,3 +1,5 @@
+import Navbar from "./Navbar";
+import { MoviesTable } from "../styles";
 import { useSelector } from "react-redux";
 import Movie from "./Movie";
 import { useState } from "react";
@@ -50,7 +52,8 @@ function Movieslist() {
   // const [_length, _setLength] = useState(0);
   // _setLength(unwatch.length);
   return (
-    <div className="App">
+      <div className="App">
+          <Navbar />
       <br></br>
       <tr>
         <td>
@@ -73,8 +76,15 @@ function Movieslist() {
           </div>
         </td>
       </tr>
-      <br></br>
-      <div className="form-group pull-right">
+          <br></br>
+        
+<div classname="container">
+        <div className="row">
+        <div className="col-2"></div> 
+        <div className="col-4">
+        <h4>Watchlist: 0</h4>
+         <MoviesTable>
+        <div className="form-group pull-right">
         <input
           type="text"
           className="search form-control"
@@ -86,7 +96,7 @@ function Movieslist() {
       <table className="table table-hover table-bordered results">
         <thead>
           <tr>
-            <th className="col-md-5 col-xs-5">Movie name</th>
+            <th className="col-md-5 col-xs-5">Movie Name</th>
             <th className="col-md-4 col-xs-4"></th>
             <th className="col-md-3 col-xs-3"></th>
           </tr>
@@ -95,9 +105,13 @@ function Movieslist() {
           {watched}
           <tr>{watched.length === 0 ? "not found" : true}</tr>
         </tbody>
-      </table>
-      <br></br>
-      <div className="form-group pull-right">
+        </table> 
+        </MoviesTable>                    
+        </div>
+        <div className="col-4">
+        <h4>Watched: 0</h4>
+        <MoviesTable>    
+        <div className="form-group pull-right">
         <input
           type="text"
           className="search form-control"
@@ -109,7 +123,7 @@ function Movieslist() {
       <table className="table table-hover table-bordered results">
         <thead>
           <tr>
-            <th className="col-md-5 col-xs-5">Movie name</th>
+            <th className="col-md-5 col-xs-5">Movie Name</th>
             <th className="col-md-4 col-xs-4"></th>
             <th className="col-md-3 col-xs-3"></th>
           </tr>
@@ -118,7 +132,16 @@ function Movieslist() {
           {unwatch}
           <tr>{unwatch.length === 0 ? "not found" : true}</tr>
         </tbody>
-      </table>
+        </table> 
+        </MoviesTable>                        
+        </div>
+        <div className="col-2"></div> 
+    </div>
+</div>    
+
+
+ 
+      
     </div>
   );
 }
