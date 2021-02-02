@@ -15,15 +15,14 @@ export const reducer = (state = initialState, action) => {
     case "UPDATE_MOVIE":
       if (action.payload.updatedMovie.watch === "watched") {
         action.payload.updatedMovie = {
-            ...action.payload.updatedMovie,
-            watch: "unwatch"
-          };
-          
+          ...action.payload.updatedMovie,
+          watch: "unwatch",
+        };
       } else {
         action.payload.updatedMovie = {
-            ...action.payload.updatedMovie,
-            watch: "watched"
-          };
+          ...action.payload.updatedMovie,
+          watch: "watched",
+        };
       }
       return {
         ...state,
@@ -32,6 +31,24 @@ export const reducer = (state = initialState, action) => {
             ? action.payload.updatedMovie
             : movie
         ),
+      };
+    case "ADD_MOVIE":
+      if (action.payload.addedMovie.id === null) {
+        action.payload.addedMovie = {
+          ...action.payload.addedMovie,
+          id: state.watchList.length + 1,
+        };
+        console.log(action.payload.addedMovie);
+      }
+      return {
+        ...state,
+        watchList: [...state.watchList, action.payload.addedMovie],
+        // watchList: state.watchList.map((movie) =>
+        //   movie.name.toLowerCase() ===
+        //   action.payload.addedMovie.name.toLowerCase()
+        //     ? movie
+        //     : [...state, action.payload.addedMovie]
+        // ),
       };
     default:
       return state;
