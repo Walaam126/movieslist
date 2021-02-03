@@ -40,7 +40,7 @@ function Movieslist() {
     )
     .map((movie) => <Movie movie={movie} key={movie.id} />);
   const [length, setLength] = useState("");
-  console.log(length);
+  
   //Unwatch Movies
   const unwatch = watchList
     .filter(
@@ -51,6 +51,9 @@ function Movieslist() {
     .map((movie) => <Movie movie={movie} key={movie.id} />);
   // const [_length, _setLength] = useState(0);
   // _setLength(unwatch.length);
+ 
+
+
   return (
       <div className="App">
           <Navbar />
@@ -82,7 +85,7 @@ function Movieslist() {
         <div className="row">
         <div className="col-2"></div> 
         <div className="col-4">
-        <h4>Watchlist: 0</h4>
+        <h4>Watchlist: {watched.length}</h4>
          <MoviesTable>
         <div className="form-group pull-right">
         <input
@@ -109,7 +112,7 @@ function Movieslist() {
         </MoviesTable>                    
         </div>
         <div className="col-4">
-        <h4>Watched: 0</h4>
+        <h4>Watched: {unwatch.length} </h4>
         <MoviesTable>    
         <div className="form-group pull-right">
         <input
